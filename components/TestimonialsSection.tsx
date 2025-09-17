@@ -16,9 +16,10 @@ export function TestimonialsSection() {
             <CardContent>
               <div className="text-center">
                 <blockquote className="text-lg italic mb-6">
-                  "Excelente trabajo realizado por el equipo de Assessment. Su
-                  metodología y profesionalismo nos ayudó significativamente en
-                  nuestro proceso de mejoramiento educativo."
+                  &ldquo;Excelente trabajo realizado por el equipo de
+                  Assessment. Su metodología y profesionalismo nos ayudó
+                  significativamente en nuestro proceso de mejoramiento
+                  educativo.&rdquo;
                 </blockquote>
                 <div className="flex items-center justify-center">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4">
@@ -37,9 +38,9 @@ export function TestimonialsSection() {
             <CardContent>
               <div className="text-center">
                 <blockquote className="text-lg italic mb-6">
-                  "La asesoría recibida fue fundamental para nuestro desarrollo
-                  institucional. Recomendamos ampliamente los servicios de
-                  Assessment."
+                  &ldquo;La asesoría recibida fue fundamental para nuestro
+                  desarrollo institucional. Recomendamos ampliamente los
+                  servicios de Assessment.&rdquo;
                 </blockquote>
                 <div className="flex items-center justify-center">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4">

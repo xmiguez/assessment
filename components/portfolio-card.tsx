@@ -10,7 +10,6 @@ import {
 import { Carousel, CarouselItem } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import {
-  Calendar,
   MapPin,
   Users,
   BookOpen,
@@ -29,23 +28,6 @@ interface PortfolioCardProps {
   description?: string;
 }
 
-const getRandomIcon = () => {
-  const icons = [Users, BookOpen, Award, GraduationCap];
-  return icons[Math.floor(Math.random() * icons.length)];
-};
-
-const getRandomGradient = () => {
-  const gradients = [
-    "from-blue-100 to-purple-100",
-    "from-green-100 to-blue-100",
-    "from-purple-100 to-pink-100",
-    "from-orange-100 to-red-100",
-    "from-indigo-100 to-blue-100",
-    "from-teal-100 to-green-100",
-  ];
-  return gradients[Math.floor(Math.random() * gradients.length)];
-};
-
 const isVideo = (filePath: string) => {
   return (
     filePath.toLowerCase().endsWith(".mp4") ||
@@ -62,9 +44,6 @@ export function PortfolioCard({
   images,
   description,
 }: PortfolioCardProps) {
-  const IconComponent = getRandomIcon();
-  const gradientClass = getRandomGradient();
-
   return (
     <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
       {/* Image/Video Slider */}
