@@ -2,6 +2,7 @@
 
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -10,7 +11,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-6">
-              <a href="#inicio" className="h-20 w-auto">
+              <Link href="/" className="h-20 w-auto">
                 <Image
                   src="/logo-main.png"
                   alt="SurAssessment Logo"
@@ -21,7 +22,7 @@ export function Footer() {
                   unoptimized={false}
                   sizes="(max-width: 768px) 200px, 250px"
                 />
-              </a>
+              </Link>
             </div>
             <p>
               Assessment es una corporación educacional para apoyar el proceso

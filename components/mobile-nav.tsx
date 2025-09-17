@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Menu, X } from "lucide-react";
+import Link from "next/link";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +27,8 @@ export function MobileNav() {
           >
             <div className="p-6">
               <div className="flex items-center space-x-2 mb-8">
-                <a
-                  href="#inicio"
+                <Link
+                  href="/"
                   className="flex items-center space-x-2"
                   onClick={() => setIsOpen(false)}
                 >
@@ -35,7 +36,7 @@ export function MobileNav() {
                     <BookOpen className="w-5 h-5" />
                   </div>
                   <span className="text-xl font-bold">SurAssessment</span>
-                </a>
+                </Link>
               </div>
 
               <nav className="space-y-4">

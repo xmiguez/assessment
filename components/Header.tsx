@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/mobile-nav";
 import Image from "next/image";
+import Link from "next/link";
 import { ModeToggle } from "./dark-switcher";
 
 export function Header() {
@@ -10,7 +11,7 @@ export function Header() {
     <header className="border-b backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
         <div className="flex items-center">
-          <a href="/" className="h-16 w-auto">
+          <Link href="/" className="h-16 w-auto">
             <Image
               src="/logo-main.png"
               alt="SurAssessment Logo"
@@ -22,7 +23,7 @@ export function Header() {
               unoptimized={false}
               sizes="(max-width: 768px) 150px, 200px"
             />
-          </a>
+          </Link>
         </div>
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#portafolio" className="transition-colors">

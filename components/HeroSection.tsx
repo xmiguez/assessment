@@ -18,8 +18,8 @@ export function HeroSection() {
           </Button>
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up">
-          Assessment es <span className="gradient-text">Capacitación</span>{" "}
-          <span className="gradient-text">Perfeccionamiento</span>{" "}
+          Assessment es <span className="gradient-text">Capacitación</span>
+          <span className="gradient-text">Perfeccionamiento</span>
           <span className="gradient-text">Asesoría</span>
         </h2>
         <p className="text-xl mb-8 max-w-4xl mx-auto animate-fade-in-up">
