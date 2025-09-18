@@ -7,12 +7,12 @@ import { portfolioData } from "@/lib/data";
 import { useState, useMemo } from "react";
 
 export function PortfolioSection() {
-  const [selectedYear, setSelectedYear] = useState("Todos");
+  const [selectedYear, setSelectedYear] = useState("2025");
 
   // Filtrar portafolio basado en año seleccionado
   const filteredPortfolio = useMemo(() => {
     return portfolioData.filter((item) => {
-      return selectedYear === "Todos" || item.year === selectedYear;
+      return item.year === selectedYear;
     });
   }, [selectedYear]);
 
@@ -29,12 +29,6 @@ export function PortfolioSection() {
 
         {/* Portfolio Filter */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <Button
-            variant={selectedYear === "Todos" ? "default" : "outline"}
-            onClick={() => setSelectedYear("Todos")}
-          >
-            Todos
-          </Button>
           <Button
             variant={selectedYear === "2025" ? "default" : "outline"}
             onClick={() => setSelectedYear("2025")}
@@ -84,33 +78,52 @@ export function PortfolioSection() {
         </div>
 
         {/* Portfolio Items */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredPortfolio.length > 0 ? (
-            filteredPortfolio.map((item) => (
-              <PortfolioCard
-                key={item.id}
-                title={item.title}
-                institution={item.institution}
-                year={item.year}
-                location={item.location}
-                images={item.images}
-                description={item.description}
-              />
-            ))
-          ) : (
-            <div className="col-span-full text-center py-12">
-              <div className="flex flex-col items-center">
-                <BookOpen className="w-16 h-16 mb-4" />
-                <p className="text-lg font-medium mb-2">
-                  No se encontraron proyectos
-                </p>
-                <p className="text-sm">
-                  No hay proyectos disponibles para el año seleccionado
-                </p>
+        {selectedYear === "Trayectoria y experiencia" ? (
+          <div className="w-full max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="p-6 border-b">
+                <h3 className="text-xl font-semibold text-center">
+                  Trayectoria y Experiencia Profesional
+                </h3>
+              </div>
+              <div className="h-[800px]">
+                <iframe
+                  src="/documentos/trayectoria y experiencia.pdf"
+                  className="w-full h-full border-0"
+                  title="Trayectoria y Experiencia Profesional"
+                />
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredPortfolio.length > 0 ? (
+              filteredPortfolio.map((item) => (
+                <PortfolioCard
+                  key={item.id}
+                  title={item.title}
+                  institution={item.institution}
+                  year={item.year}
+                  location={item.location}
+                  images={item.images}
+                  description={item.description}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <div className="flex flex-col items-center">
+                  <BookOpen className="w-16 h-16 mb-4" />
+                  <p className="text-lg font-medium mb-2">
+                    No se encontraron proyectos
+                  </p>
+                  <p className="text-sm">
+                    No hay proyectos disponibles para el año seleccionado
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

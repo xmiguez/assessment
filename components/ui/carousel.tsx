@@ -36,13 +36,13 @@ export function Carousel({ children, className }: CarouselProps) {
   return (
     <div className={cn("relative w-full", className)}>
       {/* Carousel Container */}
-      <div className="relative overflow-hidden rounded-lg">
+      <div className="relative overflow-hidden w-full h-full">
         <div
-          className="flex transition-transform duration-300 ease-in-out"
+          className="flex transition-transform duration-300 ease-in-out h-full"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {childrenArray.map((child, index) => (
-            <div key={index} className="w-full flex-shrink-0">
+            <div key={index} className="w-full flex-shrink-0 h-full">
               {child}
             </div>
           ))}

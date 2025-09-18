@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
     ],
     // Permitir imágenes locales
     unoptimized: true,
+    // Configurar calidades permitidas
+    qualities: [25, 50, 75, 100],
   },
 };
 

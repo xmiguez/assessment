@@ -45,43 +45,64 @@ export function PortfolioCard({
   description,
 }: PortfolioCardProps) {
   return (
-    <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+    <Card className="border shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
       {/* Image/Video Slider */}
-      <div className="aspect-video">
-        <Carousel className="h-full">
-          {images.map((mediaPath, index) => (
-            <CarouselItem key={index}>
-              {isVideo(mediaPath) ? (
-                <div className="relative w-full h-full">
-                  <video
-                    className="w-full h-full object-cover"
-                    controls
-                    preload="metadata"
-                  >
-                    <source src={encodeURI(mediaPath)} type="video/mp4" />
-                    Tu navegador no soporta el elemento de video.
-                  </video>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center">
-                      <Play className="w-8 h-8 ml-1" />
+      <div className="aspect-video relative">
+        {images.length === 1 ? (
+          // Si solo hay una imagen, mostrar sin carrusel
+          <div className="relative w-full h-full">
+            {isVideo(images[0]) ? (
+              <video
+                className="w-full h-full object-cover"
+                controls
+                preload="metadata"
+              >
+                <source src={images[0]} type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+              </video>
+            ) : (
+              <Image
+                src={images[0]}
+                alt={`${title} - Imagen 1`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            )}
+          </div>
+        ) : (
+          // Si hay múltiples imágenes, usar carrusel simple
+          <div className="relative w-full h-full">
+            <Carousel className="w-full h-full">
+              {images.map((mediaPath, index) => {
+                return (
+                  <CarouselItem key={index} className="w-full h-full">
+                    <div className="relative w-full h-full">
+                      {isVideo(mediaPath) ? (
+                        <video
+                          className="w-full h-full object-cover"
+                          controls
+                          preload="metadata"
+                        >
+                          <source src={mediaPath} type="video/mp4" />
+                          Tu navegador no soporta el elemento de video.
+                        </video>
+                      ) : (
+                        <Image
+                          src={mediaPath}
+                          alt={`${title} - Imagen ${index + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      )}
                     </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="relative w-full h-full">
-                  <Image
-                    src={encodeURI(mediaPath)}
-                    alt={`${title} - Imagen ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0" />
-                </div>
-              )}
-            </CarouselItem>
-          ))}
-        </Carousel>
+                  </CarouselItem>
+                );
+              })}
+            </Carousel>
+          </div>
+        )}
       </div>
 
       {/* Card Content */}
